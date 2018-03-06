@@ -5,7 +5,7 @@ Android Library for Easily calling Runtime Permission on Android Marshmallow and
 
 ## How to build
 
-Add Jitpack.io to your project.gradle file 
+Add Jitpack.io to your project level build.gradle file 
 ```gradle
 allprojects {
     repositories {
