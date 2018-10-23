@@ -2,8 +2,8 @@ package com.somesh.permissionmadeeasy.intefaces;
 
 import com.somesh.permissionmadeeasy.enums.PermissionEnum;
 
-import android.app.Activity;
-import android.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 /**
  * If this code works, it was written by Somesh Kumar on 24, December 2017. If not, I don’t know who wrote it.
@@ -12,7 +12,7 @@ public class PermissionStepBuilder {
     private PermissionStepBuilder() {
     }
 
-    public static StepOne with(Activity activity) {
+    public static StepOne with(AppCompatActivity activity) {
         return new Steps();
     }
 

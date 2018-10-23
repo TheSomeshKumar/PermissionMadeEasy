@@ -30,17 +30,17 @@ import com.somesh.permissionmadeeasy.intefaces.PermissionListener;
 
 import android.Manifest;
 import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.v13.app.FragmentCompat;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 
 import java.util.ArrayList;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 /**
  * If this code works it was written by Somesh Kumar on 23 December, 2017. If not, I don't know who wrote it.
@@ -49,7 +49,7 @@ public class PermissionHelper {
     private ArrayList<String> permissionsToAsk;
     private String rationalMessage;
     private PermissionListener permissionListener;
-    private Activity activity;
+    private AppCompatActivity activity;
     private Fragment fragment;
     private Context context;
     private boolean isFragment;
@@ -94,7 +94,7 @@ public class PermissionHelper {
         return this;
     }
 
-    public PermissionHelper with(Activity activity) {
+    public PermissionHelper with(AppCompatActivity activity) {
         this.activity = activity;
         this.context = activity;
         isFragment = false;
@@ -125,9 +125,9 @@ public class PermissionHelper {
     }
 
     private void requestPermissions() {
-        if (!hasPermissions(context, permissionsToAsk.toArray(new String[permissionsToAsk.size()]))) {
-            if (shouldShowRationale(permissionsToAsk.toArray(new String[permissionsToAsk.size()]))) {
-                DialogUtil.getInstance().showAlertDialog(context, null, 0, rationalMessage, "OK", (dialog, which) -> requestPermission(), true);
+        if (!hasPermissions(context, permissionsToAsk.toArray(new String[0]))) {
+            if (shouldShowRationale(permissionsToAsk.toArray(new String[0]))) {
+                DialogUtil.getInstance().showAlertDialog(context, null, 0, rationalMessage, "OK", (dialog, which) -> requestPermission(), "Cancel", true);
             } else {
                 requestPermission();
             }
@@ -138,16 +138,17 @@ public class PermissionHelper {
 
     private void requestPermission() {
         if (isFragment) {
-            FragmentCompat.requestPermissions(fragment, permissionsToAsk.toArray(new String[permissionsToAsk.size()]), requestCode);
+            //            FragmentCompat.requestPermissions(fragment, permissionsToAsk.toArray(new String[permissionsToAsk.size()]), requestCode);
+            fragment.requestPermissions(permissionsToAsk.toArray(new String[0]), requestCode);
         } else {
-            ActivityCompat.requestPermissions(activity, permissionsToAsk.toArray(new String[permissionsToAsk.size()]), requestCode);
+            ActivityCompat.requestPermissions(activity, permissionsToAsk.toArray(new String[0]), requestCode);
         }
     }
 
     private boolean shouldShowRationale(String... permissions) {
         if (isFragment) {
             for (String permission : permissions) {
-                if (FragmentCompat.shouldShowRequestPermissionRationale(fragment, permission)) {
+                if (fragment.shouldShowRequestPermissionRationale(permission)) {
                     shouldShowRationaleDialog = true;
                 }
             }

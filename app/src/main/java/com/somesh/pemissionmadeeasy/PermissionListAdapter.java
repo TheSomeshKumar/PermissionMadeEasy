@@ -1,12 +1,14 @@
 package com.somesh.pemissionmadeeasy;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * If this code works, it was written by Somesh Kumar on 24, December 2017. If not, I don’t know who wrote it.
@@ -19,14 +21,15 @@ public class PermissionListAdapter extends RecyclerView.Adapter<PermissionListAd
         this.permissionList = permissionList;
     }
 
+    @NonNull
     @Override
-    public PermissionHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public PermissionHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_permission_name, parent, false);
         return new PermissionHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(PermissionHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PermissionHolder holder, int position) {
         holder.tvName.setText(permissionList.get(position));
     }
 

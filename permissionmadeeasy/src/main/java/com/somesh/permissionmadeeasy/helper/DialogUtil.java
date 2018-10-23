@@ -2,12 +2,13 @@ package com.somesh.permissionmadeeasy.helper;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 
 
 public class DialogUtil {
-    public static DialogUtil sDialogUtil;
+    private static DialogUtil sDialogUtil;
 
     public static DialogUtil getInstance() {
         if (sDialogUtil == null) {
@@ -28,7 +29,7 @@ public class DialogUtil {
      * @param isCancellable               Can dialog be canceled by clicking on outside
      * @return Created dialog instance/ object
      */
-    public AlertDialog showAlertDialog(Context context, @Nullable String dialogTitle, int titleIcon, String dialogMessage, String positiveButtonText, DialogInterface.OnClickListener dialogPositiveClickListener, @Nullable String negativeButtonText, @Nullable DialogInterface.OnClickListener dialogNegativeClickListener, boolean isCancellable) {
+    private AlertDialog showAlertDialog(Context context, @Nullable String dialogTitle, int titleIcon, String dialogMessage, String positiveButtonText, DialogInterface.OnClickListener dialogPositiveClickListener, @Nullable String negativeButtonText, @Nullable DialogInterface.OnClickListener dialogNegativeClickListener, boolean isCancellable) {
         AlertDialog alert;
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setCancelable(isCancellable);
@@ -52,18 +53,18 @@ public class DialogUtil {
         return alert;
     }
 
-    public AlertDialog showAlertDialog(Context ctx, String dialogTitle, int titleIcon, String dialogMessage, String positiveButtonText, DialogInterface.OnClickListener dialogPositiveClickListener, String negativeButtonText, boolean isCancellable) {
+    AlertDialog showAlertDialog(Context ctx, String dialogTitle, int titleIcon, String dialogMessage, String positiveButtonText, DialogInterface.OnClickListener dialogPositiveClickListener, String negativeButtonText, boolean isCancellable) {
 
         return showAlertDialog(ctx, dialogTitle, titleIcon, dialogMessage, positiveButtonText, dialogPositiveClickListener, negativeButtonText, (dialog, id) -> dialog.dismiss(), isCancellable);
 
     }
 
-    public AlertDialog showAlertDialog(Context ctx, String dialogTitle, int titleIcon, String dialogMessage, String positiveButtonText, boolean isCancellable) {
+    AlertDialog showAlertDialog(Context ctx, String dialogTitle, int titleIcon, String dialogMessage, String positiveButtonText, boolean isCancellable) {
         return showAlertDialog(ctx, dialogTitle, titleIcon, dialogMessage, positiveButtonText, (dialog, id) -> dialog.dismiss(), null, null, isCancellable);
     }
 
 
-    public AlertDialog showAlertDialog(Context ctx, String dialogTitle, int titleIcon, String dialogMessage, String positiveButtonText, DialogInterface.OnClickListener onPositiveClickListener, boolean isCancellable) {
+    AlertDialog showAlertDialog(Context ctx, String dialogTitle, int titleIcon, String dialogMessage, String positiveButtonText, DialogInterface.OnClickListener onPositiveClickListener, boolean isCancellable) {
         return showAlertDialog(ctx, dialogTitle, titleIcon, dialogMessage, positiveButtonText, onPositiveClickListener, null, null, isCancellable);
     }
 
