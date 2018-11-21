@@ -1,3 +1,5 @@
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PermissionMadeEasy-blue.svg?style=flat)](https://android-arsenal.com/details/1/7335)
+
 PermissionMadeEasy
 =======
 
