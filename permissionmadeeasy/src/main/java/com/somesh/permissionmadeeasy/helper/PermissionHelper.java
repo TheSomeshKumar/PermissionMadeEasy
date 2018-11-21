@@ -25,7 +25,7 @@
 package com.somesh.permissionmadeeasy.helper;
 
 
-import com.somesh.permissionmadeeasy.enums.PermissionEnum;
+import com.somesh.permissionmadeeasy.enums.Permission;
 import com.somesh.permissionmadeeasy.intefaces.PermissionListener;
 
 import android.Manifest;
@@ -58,10 +58,10 @@ public class PermissionHelper {
 
 
     @TargetApi(Build.VERSION_CODES.KITKAT_WATCH)
-    public PermissionHelper askFor(PermissionEnum... permissionEnum) {
+    public PermissionHelper askFor(Permission... permission) {
         permissionsToAsk = new ArrayList<>();
-        for (PermissionEnum mPermissionEnum : permissionEnum) {
-            switch (mPermissionEnum) {
+        for (Permission mPermission : permission) {
+            switch (mPermission) {
                 case CALENDAR:
                     permissionsToAsk.add(Manifest.permission.WRITE_CALENDAR);
                     break;

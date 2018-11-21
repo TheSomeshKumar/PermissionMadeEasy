@@ -1,6 +1,6 @@
 package com.somesh.permissionmadeeasy.intefaces;
 
-import com.somesh.permissionmadeeasy.enums.PermissionEnum;
+import com.somesh.permissionmadeeasy.enums.Permission;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -26,7 +26,7 @@ public class PermissionStepBuilder {
     }
 
     public static interface StepTwo {
-        public StepThree askFor(PermissionEnum... permissionEnum);
+        public StepThree askFor(Permission... permission);
     }
 
     public static interface StepThree {
@@ -77,7 +77,7 @@ public class PermissionStepBuilder {
         }
 
         @Override
-        public StepThree askFor(PermissionEnum... permissionEnum) {
+        public StepThree askFor(Permission... permission) {
             return null;
         }
 
