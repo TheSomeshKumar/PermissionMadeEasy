@@ -1,3 +1,5 @@
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PermissionMadeEasy-blue.svg?style=flat)](https://android-arsenal.com/details/1/7335)
+
 PermissionMadeEasy
 =======
 
@@ -17,7 +19,7 @@ allprojects {
 Add the dependency
 ```gradle
 dependencies {
-	  implementation 'com.github.someshkumar049:permissionmadeeasy:1.0'
+	  implementation 'com.github.someshkumar049:permissionmadeeasy:1.0.1'
 	}
 ```
   
