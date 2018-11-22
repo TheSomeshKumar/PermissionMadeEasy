@@ -1,6 +1,6 @@
 package com.somesh.pemissionmadeeasy;
 
-import com.somesh.permissionmadeeasy.enums.PermissionEnum;
+import com.somesh.permissionmadeeasy.enums.Permission;
 import com.somesh.permissionmadeeasy.helper.PermissionHelper;
 import com.somesh.permissionmadeeasy.intefaces.PermissionListener;
 
@@ -38,7 +38,6 @@ public class DemoActivity extends AppCompatActivity implements View.OnClickListe
 
         mDeniedPermissionList = new ArrayList<>();
         mGrantedPermissionList = new ArrayList<>();
-        permissionHelper = new PermissionHelper();
 
         initView();
         initRecyclerView();
@@ -90,6 +89,7 @@ public class DemoActivity extends AppCompatActivity implements View.OnClickListe
         mGrantedPermissionList.clear();
         mGrantedPermissionList.addAll(acceptedPermissionList);
         grantedPermissionAdapter.notifyDataSetChanged();
+
     }
 
     @Override
@@ -107,25 +107,29 @@ public class DemoActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void askForSinglePermission() {
-        permissionHelper.with(this)
-                .askFor(PermissionEnum.LOCATION)
-                .rationalMessage("Permissions are required for app to work properly")
+        permissionHelper = PermissionHelper.Builder()
+                .with(this)
                 .requestCode(REQUEST_CODE_SINGLE)
                 .setPermissionResultCallback(this)
+                .askFor(Permission.CAMERA)
                 .build();
+        permissionHelper.requestPermissions();
     }
 
 
     private void askForMultiplePermission() {
-        permissionHelper
+        permissionHelper = PermissionHelper.Builder()
                 .with(this)
-                .askFor(PermissionEnum.CALENDAR, PermissionEnum.CAMERA, PermissionEnum.CONTACTS,
-                        PermissionEnum.LOCATION, PermissionEnum.MICROPHONE, PermissionEnum.STORAGE,
-                        PermissionEnum.PHONE, PermissionEnum.SMS, PermissionEnum.SENSORS)
-                .rationalMessage("Permissions are required for app to work properly")
                 .requestCode(REQUEST_CODE_MULTIPLE)
                 .setPermissionResultCallback(this)
+                .askFor(Permission.CALENDAR, Permission.CAMERA, Permission.CONTACTS,
+                        Permission.LOCATION, Permission.MICROPHONE, Permission.STORAGE,
+                        Permission.PHONE, Permission.SMS, Permission.SENSORS)
+                .rationalMessage("Permissions are required for app to work properly")
                 .build();
+
+
+        permissionHelper.requestPermissions();
     }
 
 
