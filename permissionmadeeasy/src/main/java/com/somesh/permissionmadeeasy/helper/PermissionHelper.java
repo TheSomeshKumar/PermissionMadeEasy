@@ -29,6 +29,7 @@ import com.somesh.permissionmadeeasy.enums.Permission;
 import com.somesh.permissionmadeeasy.intefaces.PermissionListener;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -36,7 +37,6 @@ import android.os.Build;
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -48,7 +48,7 @@ public class PermissionHelper {
     private ArrayList<String> permissionsToAsk;
     private String rationalMessage;
     private PermissionListener permissionListener;
-    private AppCompatActivity activity;
+    private Activity activity;
     private Fragment fragment;
     private Context context;
 
@@ -177,15 +177,14 @@ public class PermissionHelper {
         ArrayList<String> permissionsToAsk;
         String rationalMessage;
         PermissionListener permissionListener;
-        AppCompatActivity activity;
+        Activity activity;
         Fragment fragment;
         Context context;
         int requestCode = -1;
         boolean isFragment;
 
-
         @Override
-        public IRequestCode with(AppCompatActivity activity) {
+        public IRequestCode with(Activity activity) {
             this.activity = activity;
             this.context = activity;
             isFragment = false;
@@ -277,7 +276,7 @@ public class PermissionHelper {
     /*Interfaces for builder to make some methods must/required*/
 
     public interface IWith {
-        IRequestCode with(AppCompatActivity activity);
+        IRequestCode with(Activity activity);
 
         IRequestCode with(Fragment fragment);
     }
