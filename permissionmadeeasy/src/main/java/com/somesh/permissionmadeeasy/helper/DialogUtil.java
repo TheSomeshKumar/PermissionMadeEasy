@@ -25,7 +25,7 @@ public class DialogUtil {
      * @param positiveButtonText          Positive Button Text
      * @param dialogPositiveClickListener Positive Button click listener
      * @param negativeButtonText          Negative button text
-     * @param dialogNegativeClickListener Negative Button click listner
+     * @param dialogNegativeClickListener Negative Button click listener
      * @param isCancellable               Can dialog be canceled by clicking on outside
      * @return Created dialog instance/ object
      */
