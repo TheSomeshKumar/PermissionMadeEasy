@@ -19,7 +19,7 @@ allprojects {
 Add the dependency
 ```gradle
 dependencies {
-	  implementation 'com.github.someshkumar049:permissionmadeeasy:1.1.1'
+	  implementation 'com.github.thesomeshkumar:permissionmadeeasy:1.1.1'
 	}
 ```
   
@@ -53,4 +53,4 @@ Also override
     }
 ```  
 
-Detailed full sample project is included. Check [DemoActivity](https://github.com/someshkumar049/PermissionMadeEasy/blob/master/app/src/main/java/com/somesh/pemissionmadeeasy/DemoActivity.java) for full implemetation 
+Detailed full sample project is included. Check [DemoActivity](https://github.com/thesomeshkumar/PermissionMadeEasy/blob/master/app/src/main/java/com/somesh/pemissionmadeeasy/DemoActivity.java) for full implemetation 
