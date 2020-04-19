@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.DialogInterface
 import androidx.appcompat.app.AlertDialog
 
+@Suppress("unused")
 object DialogUtil {
 
     /**
@@ -40,12 +41,12 @@ object DialogUtil {
 
     @JvmStatic
     fun showAlertDialog(ctx: Context, dialogTitle: String?, titleIcon: Int, dialogMessage: String, positiveButtonText: String, dialogPositiveClickListener: DialogInterface.OnClickListener, negativeButtonText: String?, isCancellable: Boolean): AlertDialog {
-        return showAlertDialog(ctx, dialogTitle, titleIcon, dialogMessage, positiveButtonText, dialogPositiveClickListener, negativeButtonText, DialogInterface.OnClickListener { dialog: DialogInterface, id: Int -> dialog.dismiss() }, isCancellable)
+        return showAlertDialog(ctx, dialogTitle, titleIcon, dialogMessage, positiveButtonText, dialogPositiveClickListener, negativeButtonText, DialogInterface.OnClickListener { dialog: DialogInterface, _: Int -> dialog.dismiss() }, isCancellable)
     }
 
     @JvmStatic
     fun showAlertDialog(ctx: Context, dialogTitle: String?, titleIcon: Int, dialogMessage: String, positiveButtonText: String, isCancellable: Boolean): AlertDialog {
-        return showAlertDialog(ctx, dialogTitle, titleIcon, dialogMessage, positiveButtonText, DialogInterface.OnClickListener { dialog: DialogInterface, id: Int -> dialog.dismiss() }, null, null, isCancellable)
+        return showAlertDialog(ctx, dialogTitle, titleIcon, dialogMessage, positiveButtonText, DialogInterface.OnClickListener { dialog: DialogInterface, _: Int -> dialog.dismiss() }, null, null, isCancellable)
     }
 
     @JvmStatic

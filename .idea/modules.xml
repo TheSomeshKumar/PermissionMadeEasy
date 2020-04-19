@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PemissionMadeEasy.iml" filepath="$PROJECT_DIR$/PemissionMadeEasy.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/permissionmadeeasy/permissionmadeeasy.iml" filepath="$PROJECT_DIR$/permissionmadeeasy/permissionmadeeasy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PermissionMadeEasy.iml" filepath="$PROJECT_DIR$/.idea/PermissionMadeEasy.iml" group="PermissionMadeEasy" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="PermissionMadeEasy/app" />
+      <module fileurl="file://$PROJECT_DIR$/permissionmadeeasy/permissionmadeeasy.iml" filepath="$PROJECT_DIR$/permissionmadeeasy/permissionmadeeasy.iml" group="PermissionMadeEasy/permissionmadeeasy" />
     </modules>
   </component>
 </project>

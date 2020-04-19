@@ -73,7 +73,10 @@ class PermissionHelper {
     fun requestPermissions() {
         if (!hasPermissions(context, *permissionsToAsk.toTypedArray())) {
             if (shouldShowRationale(*permissionsToAsk.toTypedArray()) && rationalMessage != null) {
-                DialogUtil.showAlertDialog(context, null, 0, rationalMessage!!, "OK", DialogInterface.OnClickListener { dialog: DialogInterface?, which: Int -> request() }, "Cancel", true)
+                DialogUtil.showAlertDialog(context, null, 0, rationalMessage!!, "OK", DialogInterface.OnClickListener { dialog: DialogInterface, _: Int ->
+                    dialog.dismiss()
+                    request()
+                }, "Cancel", true)
             } else {
                 request()
             }
