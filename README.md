@@ -19,7 +19,7 @@ allprojects {
 Add the dependency
 ```gradle
 dependencies {
-	  implementation 'com.github.thesomeshkumar:permissionmadeeasy:1.1.1'
+	  implementation 'com.github.thesomeshkumar:permissionmadeeasy:1.2'
 	}
 ```
   
