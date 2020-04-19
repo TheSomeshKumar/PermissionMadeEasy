@@ -1,6 +1,5 @@
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PermissionMadeEasy-blue.svg?style=flat)](https://android-arsenal.com/details/1/7335)
-[![Release](https://jitpack.io/v//TheSomeshKumar/PermissionMadeEasy.svg)]
-(https://jitpack.io/#TheSomeshKumar/PermissionMadeEasy)
+[![Release](https://jitpack.io/v//TheSomeshKumar/PermissionMadeEasy.svg)](https://jitpack.io/#TheSomeshKumar/PermissionMadeEasy)
 
 PermissionMadeEasy
 =======
