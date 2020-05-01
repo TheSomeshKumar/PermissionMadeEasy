@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 29
@@ -40,6 +40,7 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
 
     implementation project(':permissionmadeeasy')
+    // implementation 'com.github.thesomeshkumar:permissionmadeeasy:1.2.2'  // for testing
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test:runner:1.2.0'

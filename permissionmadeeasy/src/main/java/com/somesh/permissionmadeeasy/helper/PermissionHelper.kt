@@ -66,6 +66,18 @@ class PermissionHelper {
         isFragment = builder.isFragment
     }
 
+    companion object {
+        /**
+         * Entry point of [PermissionHelper]
+         *
+         * @return instance of [Builder]
+         */
+
+        @JvmStatic
+        fun Builder(): IWith = PermissionHelper.Builder()
+    }
+
+
     /**
      * Method that invokes permission dialog, if permission is already granted or
      * denied (with never asked ticked) then the result is delivered without showing any dialog.
@@ -243,14 +255,5 @@ class PermissionHelper {
         fun build(): PermissionHelper
     }
 
-    companion object {
-        /**
-         * Entry point of [PermissionHelper]
-         *
-         * @return instance of [Builder]
-         */
-        fun Builder(): IWith {
-            return PermissionHelper.Builder()
-        }
-    }
+
 }
