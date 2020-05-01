@@ -28,25 +28,26 @@ dependencies {
   
 Create a `PermissionHelper` object
   
-```java
- PermissionHelper permissionHelper = PermissionHelper.Builder()
-                .with(this)
-                .requestCode(REQUEST_CODE_MULTIPLE)
-                .setPermissionResultCallback(this)
-                .askFor(Permission.CALENDAR, Permission.CAMERA, Permission.CONTACTS)
-                .rationalMessage("Permissions are required for app to work properly") //Optional
-                .build();
+```kotlin
+permissionHelper = PermissionHelper.Builder()
+        .with(this)
+        .requestCode(REQUEST_CODE_MULTIPLE)
+        .setPermissionResultCallback(this)
+        .askFor(Permission.CALENDAR, Permission.CAMERA, Permission.CONTACTS,
+                Permission.LOCATION, Permission.MICROPHONE, Permission.STORAGE,
+                Permission.PHONE, Permission.SMS, Permission.SENSORS)
+        .rationalMessage("Permissions are required for app to work properly")
+        .build()
  ```
  and when you want to ask for the permission just call
- ```java
-permissionHelper.requestPermissions();
+ ```kotlin
+permissionHelper.requestPermissions()
  ```
  
-Override `onPermissionsGranted` and `onPermissionsDenied` methods
+Override `onPermissionsGranted` and `onPermissionsDenied` functions
 
-Also override 
-
-```java
+Also override `onRequestPermissionsResult` and pass the arguments recieved to `PermissionHelper` class' `onRequestPermissionsResult` function.
+```kotlin
 @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -54,4 +55,4 @@ Also override
     }
 ```  
 
-Detailed full sample project is included. Check [DemoActivity](https://github.com/thesomeshkumar/PermissionMadeEasy/blob/master/app/src/main/java/com/somesh/pemissionmadeeasy/DemoActivity.java) for full implemetation 
+Detailed full sample project is included. Check [DemoActivity](https://github.com/thesomeshkumar/PermissionMadeEasy/blob/master/app/src/main/java/com/somesh/pemissionmadeeasy/DemoActivity.kt) for full implemetation 
